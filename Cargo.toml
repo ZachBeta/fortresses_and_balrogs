@@ -1,0 +1,9 @@
+[package]
+name = "fortresses_and_balrogs"
+version = "0.1.0"
+edition = "2024"
+
+[dependencies]
+specs = "0.20"
+specs-derive = "0.4"
+crossterm = "0.27"
