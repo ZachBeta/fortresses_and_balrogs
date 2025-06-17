@@ -26,6 +26,10 @@ fn main() -> Result<(), Box<dyn std::error::Error>> {
     // Insert GameControl resource
     world.insert(systems::input_system::GameControl::default());
 
+    // Insert GameLog resource
+    let game_log = systems::game_log::GameLog::new("game.log").expect("Failed to create log file");
+    world.insert(game_log);
+
     // Create systems
     let mut dispatcher = DispatcherBuilder::new()
         .with(RenderSystem, "render", &[])
@@ -71,6 +75,12 @@ fn main() -> Result<(), Box<dyn std::error::Error>> {
     }
 
     // Cleanup
+    // Flush and drop the log file
+    {
+        use specs::WorldExt;
+        let mut game_log = world.write_resource::<systems::game_log::GameLog>();
+        game_log.flush();
+    }
     disable_raw_mode()?;
     execute!(
         stdout,
