@@ -1,6 +1,22 @@
 # Fortresses & Balrogs
 
-A terminal-based, turn-based RPG prototype using Rust and ECS (`specs`).
+**Fortresses & Balrogs** is a terminal-based, turn-based RPG inspired by classic fantasy and roguelike traditions, with a focus on emergent gameplay, deep simulation, and modular architecture.
+
+## Project Vision
+- **ECS Architecture:** Everything in the game world—characters, items, environments—follows an Entity-Component-System (ECS) model for maximum flexibility and scalability.
+- **Deep Simulation:** The world simulates not just movement and combat, but also light, vision, morale, needs, and environmental effects.
+- **Emergent Storytelling:** Through systemic design (AI, world, party, and event systems), the game aims to generate memorable, unscripted stories.
+- **Modular & Extensible:** Both the codebase and design are organized for easy extension—new systems, mechanics, and content can be added without major rewrites.
+- **Replayable & Transparent:** Every frame and action can be logged and replayed, allowing for detailed analysis, debugging, and “book-like” game histories.
+
+**MVP Goals:**
+- Implement a minimal but complete vertical slice: movement, party, basic combat, and world interaction.
+- Use ECS for all gameplay logic.
+- Terminal-based UI with clear, readable feedback.
+- Frame-by-frame logging for replay and debugging.
+
+**Technical Stack:**
+- Rust, `specs` ECS, `crossterm` for terminal UI, and modular design files for each major system.
 
 ## Features
 - Entity-Component-System architecture
